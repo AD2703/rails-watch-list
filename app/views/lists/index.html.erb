@@ -1,0 +1,15 @@
+<div class="image-wrap">
+  <div class="img-content">
+    <%= image_tag('movie_art.jpeg') %>
+  </div>
+  <div class="overlay"></div>
+</div>
+<div class="banner-content">
+  <h1>list</h1>
+</div>
+<ul>
+  <% @lists.each do |list| %>
+    <li><%= list.name %>
+    </li>
+  <% end %>
+</ul>
