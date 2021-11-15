@@ -1,15 +1,18 @@
-<div class="image-wrap">
-  <div class="img-content">
-    <%= image_tag('movie_art.jpeg') %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://static2.srcdn.com/wordpress/wp-content/uploads/2019/10/10-Pieces-of-Movie-Artwork-Every-Fan-Must-Own.jpg);">
+  <div class="container">
+    <h1>Movies <strong>for people that like movies</strong> and <strong>wants to create a list</strong>!</h1>
+    <p>Make your own list so people can see it and share it.</p>
   </div>
-  <div class="overlay"></div>
 </div>
-<div class="banner-content">
-  <h1>list</h1>
+<div class="container d-flex justify-content-around mt-3">
+<% @lists.each do |list| %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title btn btn-outline-primary" id="title-btn"> <%= link_to list.name, list_path(list) %></h5>
+    <% unless list.movies.empty? %>
+      <%= image_tag list.movies.sample.poster_url, width: 200, height: 250 %>
+    <% end %>
+  </div>
 </div>
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= list.name %>
-    </li>
-  <% end %>
-</ul>
+    <% end %>
+</div>
